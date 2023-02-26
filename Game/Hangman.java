@@ -25,6 +25,10 @@ public class Hangman {
     private int gameStatus;
 
     public Hangman(){
+        this.init();
+    }
+
+    public void init(){
         this.challengeLoader.generateRandomChallenge();
         this.incorrectGuessCount = 0;
         this.word = this.challengeLoader.getWord();
@@ -104,11 +108,7 @@ public class Hangman {
     }
 
     public void reset(){
-        this.challengeLoader.generateRandomChallenge();
-        this.incorrectGuessCount = 0;
-        this.word = this.challengeLoader.getWord();
-        this.category = this.challengeLoader.getCategory();
-        this.letters = "_".repeat(word.length());
+        this.init();
         this.checkGameStatus();
     }
 
